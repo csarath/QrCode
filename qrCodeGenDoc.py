@@ -8,7 +8,6 @@ import png
 import xlrd
 from xlrd import xldate
 from xlrd.sheet import ctype_text
-from threading import Thread
 import docx
 from docx import Document
 from docx.enum.table import WD_TABLE_ALIGNMENT
@@ -183,6 +182,7 @@ class QrCodeGen():
                 row = sh.row(j)
                 qr_string=''
                 for idx, cell_obj in enumerate(row):
+                    #guiObj.displayTextOnGui("Row : "+str(j)+"col : "+str(idx))
                     if cell_obj.ctype in (xlrd.XL_CELL_EMPTY, xlrd.XL_CELL_BLANK):
                         continue
                     if(cell_obj.ctype == xlrd.XL_CELL_DATE):
@@ -198,7 +198,7 @@ class QrCodeGen():
                     #head = document.add_heading(shname)
                     #head.alignment = WD_ALIGN_PARAGRAPH.CENTER
                     #addHeader = 0
-                big_code = pyqrcode.create(qr_string, error='L', version=11, mode='binary')
+                big_code = pyqrcode.create(qr_string, error='L', mode='binary')
                 big_code.png('code.png', scale=1, module_color=[0, 0, 0, 128], background=[0xff, 0xff, 0xff])
                 if celli == 2:
                     row = table.add_row()
