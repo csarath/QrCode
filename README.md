@@ -2,7 +2,7 @@
 Generates Qr code corresponding to data present in the given excel sheet. 
 
 ###Version
-    1.0
+    2.0
 
 ###Python Version
     2.7.x 
@@ -17,3 +17,7 @@ Generates Qr code corresponding to data present in the given excel sheet.
 
 ###Standalone
     Use "python setupGuiDocMsi.py bdist_msi -o" to create a stand alone application. (install cx_Freeze first)
+    
+###Todo
+    - Add options to change margins of the page. 
+    - Add options to control number of qrcodes per row.
